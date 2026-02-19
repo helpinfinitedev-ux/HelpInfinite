@@ -14,11 +14,10 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 const Index = () => {
   return (
-    <ParallaxProvider>
-      <div className="min-h-screen relative overflow-hidden bg-[#050505] text-white">
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
+    <div className="min-h-screen relative overflow-hidden bg-[#050505] text-white">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
           :root {
             --logo-blue: #0096FF;
             --logo-gray: #707070;
@@ -85,41 +84,40 @@ const Index = () => {
             color: white;
           }
         `,
-          }}
-        />
+        }}
+      />
 
-        <CustomCursor />
-        <Navbar />
+      <CustomCursor />
+      <Navbar />
 
-        {/* Ambient Background Glows */}
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#0096FF]/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#0096FF]/5 rounded-full blur-[120px]" />
-        </div>
-
-        <HeroSection />
-
-        {/* Slogan Banner - Innovate. Integrate. Elevate. */}
-        <div className="w-full bg-white/5 border-y border-white/10 py-4 overflow-hidden whitespace-nowrap">
-          <div className="flex justify-around animate-pulse">
-            <span className="text-xl md:text-2xl font-bold tracking-widest text-[#0096FF]">INNOVATE</span>
-            <span className="text-xl md:text-2xl font-bold tracking-widest text-gray-500">INTEGRATE</span>
-            <span className="text-xl md:text-2xl font-bold tracking-widest text-[#0096FF]">ELEVATE</span>
-          </div>
-        </div>
-
-        <FeaturesSection />
-        <ServicesSection />
-        {/* <ProductSection /> */}
-        {/* <WhyUsSection /> */}
-        <PortfolioSection />
-        <TestimonialsSection />
-        <TeamSection />
-        <ContactSection />
-
-        <Footer />
+      {/* Ambient Background Glows */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#0096FF]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#0096FF]/5 rounded-full blur-[120px]" />
       </div>
-    </ParallaxProvider>
+
+      <HeroSection />
+
+      {/* Slogan Banner - Innovate. Integrate. Elevate. */}
+      <div className="w-full bg-white/5 border-y border-white/10 py-4 overflow-hidden whitespace-nowrap">
+        <div className="flex justify-around animate-pulse">
+          <span className="text-xl md:text-2xl font-bold tracking-widest text-[#0096FF]">INNOVATE</span>
+          <span className="text-xl md:text-2xl font-bold tracking-widest text-gray-500">INTEGRATE</span>
+          <span className="text-xl md:text-2xl font-bold tracking-widest text-[#0096FF]">ELEVATE</span>
+        </div>
+      </div>
+
+      <FeaturesSection />
+      <ServicesSection />
+      {/* <ProductSection /> */}
+      {/* <WhyUsSection /> */}
+      <PortfolioSection />
+      <TestimonialsSection />
+      <TeamSection />
+      <ContactSection />
+
+      <Footer />
+    </div>
   );
 };
 
