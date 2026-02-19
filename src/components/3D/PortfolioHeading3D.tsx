@@ -1,4 +1,3 @@
-
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Float, Text3D } from "@react-three/drei";
 
@@ -8,17 +7,9 @@ const PortfolioHeading3D = () => {
       <ambientLight intensity={0.7} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1.2} />
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-        <Text3D
-          font="/fonts/Inter_Bold.json"
-          size={1.4}
-          height={0.3}
-          position={[-4.8, 0, 0]}
-          bevelEnabled
-          bevelSize={0.05}
-          bevelThickness={0.02}
-        >
+        <Text3D font="/fonts/Inter_Bold.json" size={1.4} height={0.3} position={[-4.8, 0, 0]} bevelEnabled bevelSize={0.05} bevelThickness={0.02}>
           Our Portfolio
-          <meshStandardMaterial color="#6366f1" metalness={0.5} roughness={0.2} />
+          <meshStandardMaterial color="#0096FF" metalness={0.5} roughness={0.2} />
         </Text3D>
       </Float>
       <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />

@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
@@ -16,7 +15,7 @@ interface ServiceCardProps {
 }
 
 // Simple Icon component as fallback for mobile
-const SimpleIcon = ({ Icon, color }: { Icon: LucideIcon, color: string }) => {
+const SimpleIcon = ({ Icon, color }: { Icon: LucideIcon; color: string }) => {
   return (
     <div className="w-12 h-12 mb-4 flex items-center justify-center rounded-full" style={{ backgroundColor: color }}>
       <Icon className="w-6 h-6 text-white" />
@@ -25,7 +24,7 @@ const SimpleIcon = ({ Icon, color }: { Icon: LucideIcon, color: string }) => {
 };
 
 // 3D Icon component for desktop
-const Icon3D = ({ Icon, color }: { Icon: LucideIcon, color: string }) => {
+const Icon3D = ({ Icon, color }: { Icon: LucideIcon; color: string }) => {
   return (
     <div className="w-16 h-16 mb-4">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
@@ -35,12 +34,7 @@ const Icon3D = ({ Icon, color }: { Icon: LucideIcon, color: string }) => {
           <sphereGeometry args={[1.2, 16, 16]} />
           <meshStandardMaterial color={color} />
         </mesh>
-        <OrbitControls 
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={3}
-        />
+        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={3} />
       </Canvas>
       <div className="relative -mt-12 ml-4 z-10">
         <Icon className="w-8 h-8 text-white" />
@@ -49,25 +43,25 @@ const Icon3D = ({ Icon, color }: { Icon: LucideIcon, color: string }) => {
   );
 };
 
-export const ServiceCard = ({ title, description, icon: Icon, color = "#6366f1" }: ServiceCardProps) => {
+export const ServiceCard = ({ title, description, icon: Icon, color = "#0096FF" }: ServiceCardProps) => {
   const [tiltX, setTiltX] = useState(0);
   const [tiltY, setTiltY] = useState(0);
   const isMobile = useIsMobile();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isMobile) return; // Skip tilt effect on mobile
-    
+
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const tiltX = (y - centerY) / 10;
     const tiltY = (centerX - x) / 10;
-    
+
     setTiltX(tiltX);
     setTiltY(tiltY);
   };
@@ -78,23 +72,17 @@ export const ServiceCard = ({ title, description, icon: Icon, color = "#6366f1" 
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-    >
+    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
       <motion.div
         style={{
-          transform: !isMobile ? `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)` : 'none',
-          transformStyle: "preserve-3d"
+          transform: !isMobile ? `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)` : "none",
+          transformStyle: "preserve-3d",
         }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         whileHover={{ scale: isMobile ? 1.02 : 1.05 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <Card className="hover:shadow-xl transition-shadow bg-white/80 backdrop-blur-sm border border-gray-200/50 h-full">
+        transition={{ type: "spring", stiffness: 300 }}>
+        <Card className="hover:shadow-2xl transition-all duration-300 bg-white/5 backdrop-blur-md border border-white/10 h-full text-white">
           <CardHeader>
             <div style={{ transform: !isMobile ? "translateZ(20px)" : "none" }}>
               {isMobile ? (
@@ -104,11 +92,13 @@ export const ServiceCard = ({ title, description, icon: Icon, color = "#6366f1" 
                   <Icon3D Icon={Icon} color={color} />
                 </Suspense>
               )}
-              <CardTitle>{title}</CardTitle>
+              <CardTitle className="text-white">{title}</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600" style={{ transform: !isMobile ? "translateZ(20px)" : "none" }}>{description}</p>
+            <p className="text-gray-300" style={{ transform: !isMobile ? "translateZ(20px)" : "none" }}>
+              {description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>

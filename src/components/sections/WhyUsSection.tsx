@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
 import { Canvas } from "@react-three/fiber";
@@ -7,12 +6,11 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const WhyUsHeadingFallback = () => {
   return (
-    <motion.h2 
-      className="text-3xl md:text-4xl font-bold text-center text-white mb-12 bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent"
+    <motion.h2
+      className="text-3xl md:text-4xl font-bold text-center text-white mb-12 bg-gradient-to-r from-[#0096FF] to-white bg-clip-text text-transparent"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+      transition={{ duration: 0.5 }}>
       WHY CHOOSE US
     </motion.h2>
   );
@@ -24,14 +22,9 @@ const WhyUsHeading = () => {
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-        <Text3D
-          font="/fonts/Inter_Bold.json"
-          size={1.2}
-          height={0.2}
-          position={[-3, 0, 0]}
-        >
+        <Text3D font="/fonts/Inter_Bold.json" size={1.2} height={0.2} position={[-3, 0, 0]}>
           Why Choose Us
-          <meshStandardMaterial color="#6366f1" />
+          <meshStandardMaterial color="#0096FF" />
         </Text3D>
       </Float>
       <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
@@ -44,13 +37,7 @@ const ReasonBox = ({ rotate = false }) => {
     <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
       <mesh rotation={rotate ? [0.1, 0.1, 0] : [0, 0, 0]}>
         <boxGeometry args={[3.8, 2, 0.2]} />
-        <meshStandardMaterial 
-          color="#1e293b" 
-          metalness={0.5} 
-          roughness={0.5} 
-          emissive="#6366f1"
-          emissiveIntensity={0.1}
-        />
+        <meshStandardMaterial color="#0a0a0a" metalness={0.7} roughness={0.2} emissive="#0096FF" emissiveIntensity={0.2} />
       </mesh>
     </Float>
   );
@@ -58,9 +45,9 @@ const ReasonBox = ({ rotate = false }) => {
 
 export const WhyUsSection = () => {
   const isMobile = useIsMobile();
-  
+
   return (
-    <section id="why-us" className="py-20 px-4 bg-black relative">
+    <section id="why-us" className="py-20 px-4 bg-[#050505] relative">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <WhyUsHeadingFallback />
@@ -70,16 +57,15 @@ export const WhyUsSection = () => {
           {[
             { title: "Expert Team", desc: "Skilled professionals with years of industry experience" },
             { title: "Modern Solutions", desc: "Using latest technologies and best practices" },
-            { title: "Dedicated Support", desc: "24/7 customer support and maintenance" }
+            { title: "Dedicated Support", desc: "24/7 customer support and maintenance" },
           ].map((item, index) => (
-            <motion.div 
+            <motion.div
               key={item.title}
-              className="p-8 rounded-lg border border-gray-800 shadow-lg relative h-64 flex flex-col justify-center"
+              className="p-8 rounded-lg border border-white/10 shadow-lg relative h-64 flex flex-col justify-center bg-white/5 backdrop-blur-sm"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+              transition={{ duration: 0.5, delay: index * 0.1 }}>
               <div className="absolute inset-0 z-0">
                 <Canvas>
                   <ambientLight intensity={0.5} />

@@ -1,4 +1,3 @@
-
 import { ServiceCard } from "@/components/ServiceCard";
 import { motion } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
@@ -11,12 +10,11 @@ import { Suspense, lazy } from "react";
 // Fallback heading for mobile or when 3D component is loading
 const ServicesHeadingFallback = () => {
   return (
-    <motion.h2 
-      className="text-3xl md:text-4xl font-bold text-center text-white my-4 bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent"
+    <motion.h2
+      className="text-3xl md:text-4xl font-bold text-center text-white my-4 bg-gradient-to-r from-[#0096FF] to-white bg-clip-text text-transparent"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+      transition={{ duration: 0.5 }}>
       OUR SERVICES
     </motion.h2>
   );
@@ -27,33 +25,33 @@ const services = [
     title: "Web Development",
     description: "Custom-built responsive websites and web applications designed to meet your business needs and impress your customers",
     icon: Code,
-    color: "#6366f1",
+    color: "#0096FF",
   },
   {
     title: "Mobile Apps",
     description: "Native and cross-platform mobile applications for iOS and Android that deliver exceptional user experiences",
     icon: Smartphone,
-    color: "#818cf8",
+    color: "#4DC3FF",
   },
   {
     title: "SEO Optimization",
     description: "Comprehensive search engine optimization strategies to improve visibility and drive targeted traffic to your website",
     icon: Search,
-    color: "#1e293b",
+    color: "#707070",
   },
   {
     title: "Email Marketing",
     description: "Effective email campaigns that engage your audience, nurture leads, and drive conversions for your business",
     icon: Mail,
-    color: "#38bdf8",
+    color: "#0077CC",
   },
 ];
 
 export const ServicesSection = () => {
   const isMobile = useIsMobile();
-  
+
   return (
-    <section id="services" className="py-16 md:py-24 px-4 bg-black relative">
+    <section id="services" className="py-16 md:py-24 px-4 bg-[#050505] relative">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <ServicesHeadingFallback />
@@ -62,8 +60,7 @@ export const ServicesSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+            transition={{ duration: 0.5 }}>
             We offer a comprehensive range of digital solutions to help your business grow
           </motion.p>
         </div>
@@ -74,7 +71,7 @@ export const ServicesSection = () => {
           ))}
         </div>
       </div>
-      
+
       {/* Background animated particles - only show on non-mobile for performance */}
       {!isMobile && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

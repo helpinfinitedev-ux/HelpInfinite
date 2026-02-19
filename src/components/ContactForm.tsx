@@ -1,24 +1,11 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
-} from "@/components/ui/select";
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel 
-} from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -66,7 +53,7 @@ export const ContactForm = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -83,9 +70,9 @@ export const ContactForm = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -93,31 +80,20 @@ export const ContactForm = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 }
-    }
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
   };
 
   return (
     <>
-      <motion.h3 
-        className="text-2xl font-bold mb-6 text-primary relative inline-block"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <motion.h3 className="text-2xl font-bold mb-6 text-[#0096FF] relative inline-block" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
         {typingText}
         <span className="animate-pulse ml-1">|</span>
       </motion.h3>
-      
+
       <Form {...form}>
-        <motion.form 
-          onSubmit={form.handleSubmit(onSubmit)} 
-          className="space-y-4"
-          variants={formVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white/70 rounded-md backdrop-blur-sm px-3 border border-gray-100">
+        <motion.form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" variants={formVariants} initial="hidden" animate="visible">
+          <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white/5 rounded-md backdrop-blur-md px-3 border border-white/10">
             <User className="text-gray-400" size={18} />
             <FormField
               control={form.control}
@@ -131,8 +107,8 @@ export const ContactForm = () => {
               )}
             />
           </motion.div>
-          
-          <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white/70 rounded-md backdrop-blur-sm px-3 border border-gray-100">
+
+          <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white/5 rounded-md backdrop-blur-md px-3 border border-white/10">
             <Mail className="text-gray-400" size={18} />
             <FormField
               control={form.control}
@@ -146,8 +122,8 @@ export const ContactForm = () => {
               )}
             />
           </motion.div>
-          
-          <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white/70 rounded-md backdrop-blur-sm px-3 border border-gray-100">
+
+          <motion.div variants={itemVariants} className="flex items-center gap-2 bg-white/5 rounded-md backdrop-blur-md px-3 border border-white/10">
             <Phone className="text-gray-400" size={18} />
             <FormField
               control={form.control}
@@ -161,7 +137,7 @@ export const ContactForm = () => {
               )}
             />
           </motion.div>
-          
+
           <motion.div variants={itemVariants}>
             <FormField
               control={form.control}
@@ -169,11 +145,11 @@ export const ContactForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <SelectTrigger className="w-full backdrop-blur-sm bg-white/70 border-gray-100 flex items-center gap-2">
+                    <SelectTrigger className="w-full backdrop-blur-md bg-white/5 border-white/10 flex items-center gap-2 text-white">
                       <Briefcase className="text-gray-400" size={18} />
                       <SelectValue placeholder="Select Work Type" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-[#0a0a0a] border-white/10 text-white">
                       <SelectItem value="web">Web Development</SelectItem>
                       <SelectItem value="mobile">Mobile App Development</SelectItem>
                       <SelectItem value="seo">SEO Services</SelectItem>
@@ -185,8 +161,8 @@ export const ContactForm = () => {
               )}
             />
           </motion.div>
-          
-          <motion.div variants={itemVariants} className="flex gap-2 bg-white/70 rounded-md backdrop-blur-sm px-3 py-2 border border-gray-100">
+
+          <motion.div variants={itemVariants} className="flex gap-2 bg-white/5 rounded-md backdrop-blur-md px-3 py-2 border border-white/10">
             <MessageSquare className="text-gray-400 mt-1" size={18} />
             <FormField
               control={form.control}
@@ -200,14 +176,10 @@ export const ContactForm = () => {
               )}
             />
           </motion.div>
-          
+
           <motion.div variants={itemVariants}>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Button 
-                type="submit" 
-                className="w-full"
-                disabled={isSubmitting}
-              >
+              <Button type="submit" className="w-full bg-[#0096FF] hover:bg-[#0082E0] text-white" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </motion.div>
@@ -215,36 +187,34 @@ export const ContactForm = () => {
         </motion.form>
       </Form>
 
-      <div className="mt-8 pt-6 border-t border-gray-200">
-        <h4 className="text-xl font-semibold mb-4 text-gray-700">Contact Us Directly</h4>
+      <div className="mt-8 pt-6 border-t border-white/10">
+        <h4 className="text-xl font-semibold mb-4 text-gray-300">Contact Us Directly</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <a
-            href="https://wa.me/1234567890"
+            href="https://wa.me/919651497211"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 bg-green-500/10 hover:bg-green-500/20 text-green-700 rounded-lg transition-all duration-300"
-          >
-            <div className="bg-green-500 text-white p-2 rounded-full">
+            className="flex items-center gap-3 p-4 bg-[#0096FF]/10 hover:bg-[#0096FF]/20 text-white rounded-lg transition-all duration-300 border border-[#0096FF]/20">
+            <div className="bg-[#0096FF] text-white p-2 rounded-full">
               <MessageSquare size={20} />
             </div>
             <div>
-              <div className="font-semibold">WhatsApp</div>
-              <div className="text-sm">+91 9651497211</div>
+              <div className="font-semibold text-white">WhatsApp</div>
+              <div className="text-sm text-gray-400">+91 9651497211</div>
             </div>
           </a>
-          
+
           <a
             href="https://t.me/helpinfinite"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 bg-blue-500/10 hover:bg-blue-500/20 text-blue-700 rounded-lg transition-all duration-300"
-          >
-            <div className="bg-blue-500 text-white p-2 rounded-full">
+            className="flex items-center gap-3 p-4 bg-[#707070]/10 hover:bg-[#707070]/20 text-white rounded-lg transition-all duration-300 border border-[#707070]/20">
+            <div className="bg-[#707070] text-white p-2 rounded-full">
               <MessageSquare size={20} />
             </div>
             <div>
-              <div className="font-semibold">Telegram</div>
-              <div className="text-sm">@helpinfinite</div>
+              <div className="font-semibold text-white">Telegram</div>
+              <div className="text-sm text-gray-400">@helpinfinite</div>
             </div>
           </a>
         </div>

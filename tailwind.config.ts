@@ -1,14 +1,8 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -26,15 +20,15 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#6366f1",
+          DEFAULT: "#0096FF",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#1e293b",
+          DEFAULT: "#707070",
           foreground: "#ffffff",
         },
         accent: {
-          DEFAULT: "#818cf8",
+          DEFAULT: "#0096FF",
           foreground: "#ffffff",
         },
         destructive: {
@@ -76,44 +70,44 @@ export default {
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out forwards",
-        "pulse": "pulse-slow 1.5s infinite",
+        pulse: "pulse-slow 1.5s infinite",
       },
       backdropFilter: {
-        'none': 'none',
-        'blur': 'blur(20px)',
+        none: "none",
+        blur: "blur(20px)",
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
-    function({ addUtilities }: { addUtilities: Function }) {
+    function ({ addUtilities }: { addUtilities: (utilities: Record<string, unknown>) => void }) {
       const newUtilities = {
-        '.scrollbar-hide': {
+        ".scrollbar-hide": {
           /* IE and Edge */
-          '-ms-overflow-style': 'none',
+          "-ms-overflow-style": "none",
           /* Firefox */
-          'scrollbar-width': 'none',
+          "scrollbar-width": "none",
           /* Safari and Chrome */
-          '&::-webkit-scrollbar': {
-            display: 'none'
-          }
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
         },
-        '.glassmorphism': {
-          'background': 'rgba(255, 255, 255, 0.15)',
-          'backdrop-filter': 'blur(20px)',
-          '-webkit-backdrop-filter': 'blur(20px)',
-          'border': '1px solid rgba(255, 255, 255, 0.18)',
-          'box-shadow': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        ".glassmorphism": {
+          background: "rgba(255, 255, 255, 0.15)",
+          "backdrop-filter": "blur(20px)",
+          "-webkit-backdrop-filter": "blur(20px)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          "box-shadow": "0 8px 32px 0 rgba(0, 150, 255, 0.1)",
         },
-        '.neon-text': {
-          'color': '#fff',
-          'text-shadow': '0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #6366f1, 0 0 82px #6366f1, 0 0 92px #6366f1, 0 0 102px #6366f1, 0 0 151px #6366f1',
+        ".neon-text": {
+          color: "#fff",
+          "text-shadow": "0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0096FF, 0 0 82px #0096FF, 0 0 92px #0096FF, 0 0 102px #0096FF, 0 0 151px #0096FF",
         },
-      }
+      };
       addUtilities(newUtilities);
-    }
+    },
   ],
 } satisfies Config;
