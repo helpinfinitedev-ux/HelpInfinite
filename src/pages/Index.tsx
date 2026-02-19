@@ -87,7 +87,7 @@ const Index = () => {
         }}
       />
 
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <Navbar />
 
       {/* Ambient Background Glows */}

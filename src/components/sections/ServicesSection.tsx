@@ -1,6 +1,5 @@
 import { ServiceCard } from "@/components/ServiceCard";
 import { motion } from "framer-motion";
-import { Parallax } from "react-scroll-parallax";
 import { Code, Smartphone, Search, Mail } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Float, Text3D, Stars } from "@react-three/drei";

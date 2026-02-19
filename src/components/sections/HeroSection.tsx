@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { HeroCanvas } from "@/components/HeroCanvas";
-import { Parallax } from "react-scroll-parallax";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -12,22 +11,18 @@ export const HeroSection = () => {
       <HeroCanvas />
       <div className="max-w-7xl mx-auto z-10 px-4 py-20 md:py-20 w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
         <div className="flex-1">
-          <Parallax speed={-5}>
-            <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 max-w-3xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}>
-              Digital solutions for
-              <span className="block">modern businesses.</span>
-            </motion.h1>
-          </Parallax>
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 max-w-3xl"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}>
+            Digital solutions for
+            <span className="block">modern businesses.</span>
+          </motion.h1>
 
-          <Parallax speed={-2}>
-            <motion.p className="text-lg font-semibold text-blue-300 md:text-xl mb-6 md:mb-8 max-w-2xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }}>
-              Web development, mobile apps, SEO, and email marketing to take your business to the next level
-            </motion.p>
-          </Parallax>
+          <motion.p className="text-lg font-semibold text-blue-300 md:text-xl mb-6 md:mb-8 max-w-2xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }}>
+            Web development, mobile apps, SEO, and email marketing to take your business to the next level
+          </motion.p>
 
           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-col sm:flex-row gap-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
