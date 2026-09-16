@@ -17,7 +17,7 @@ interface ServiceCardProps {
 // Simple Icon component as fallback for mobile
 const SimpleIcon = ({ Icon, color }: { Icon: LucideIcon; color: string }) => {
   return (
-    <div className="w-12 h-12 mb-4 flex items-center justify-center rounded-full" style={{ backgroundColor: color }}>
+    <div className="w-12 h-10 mb-4 flex items-center justify-center rounded-full" style={{ backgroundColor: color }}>
       <Icon className="w-6 h-6 text-white" />
     </div>
   );
