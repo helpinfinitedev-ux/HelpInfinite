@@ -11,6 +11,7 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { ProductSection } from "@/components/sections/ProductSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { FloatingSocialIcons } from "@/components/FloatingSocialIcons";
 
 const Index = () => {
   return (
@@ -98,15 +99,6 @@ const Index = () => {
 
       <HeroSection />
 
-      {/* Slogan Banner - Innovate. Integrate. Elevate. */}
-      <div className="w-full bg-white/5 border-y border-white/10 py-4 overflow-hidden whitespace-nowrap">
-        <div className="flex justify-around animate-pulse">
-          <span className="text-xl md:text-2xl font-bold tracking-widest text-[#0096FF]">INNOVATE</span>
-          <span className="text-xl md:text-2xl font-bold tracking-widest text-gray-500">INTEGRATE</span>
-          <span className="text-xl md:text-2xl font-bold tracking-widest text-[#0096FF]">ELEVATE</span>
-        </div>
-      </div>
-
       <FeaturesSection />
       <ServicesSection />
       {/* <ProductSection /> */}
@@ -116,6 +108,7 @@ const Index = () => {
       <TeamSection />
       <ContactSection />
 
+      <FloatingSocialIcons />
       <Footer />
     </div>
   );
