@@ -13,13 +13,8 @@ interface TeamMember {
   name: string;
   role: string;
   bio: string;
-  imageUrl: string;
-  socials: {
-    linkedin?: string;
-    twitter?: string;
-    github?: string;
-    email?: string;
-  };
+  src: string;
+
 }
 
 // Centered Heading Component
@@ -70,61 +65,45 @@ export const TeamSection = () => {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: "Alex Vance",
-      role: "Chief Executive Officer",
+      name: "Mohammad Moazzam",
+      role: "CEO",
       bio: "Visionary leader with 12+ years in scaling AI & modern software platforms globally.",
-      imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        github: "#",
-      },
+      src: `/Team/moazzam1.png`
     },
     {
       id: 2,
-      name: "Sophia Carter",
+      name: "Faisal",
       role: "Head of Product Design",
       bio: "Passionate about crafting intuitive UI/UX and seamless digital interactions.",
-      imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        email: "mailto:sophia@example.com",
-      },
+      src: "/Team/faisal.png"
     },
     {
       id: 3,
-      name: "Marcus Sterling",
+      name: "Danish",
       role: "Lead Full-Stack Architect",
       bio: "Specializes in high-throughput cloud infrastructure and real-time backend systems.",
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        github: "#",
-        linkedin: "#",
-      },
+      src: "/Team/danish.png"
     },
     {
       id: 4,
-      name: "Elena Rostova",
+      name: "Gajri",
       role: "AI / ML Engineering Lead",
       bio: "Pioneering generative models, deep learning pipelines, and predictive algorithms.",
-      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        github: "#",
-        twitter: "#",
-      },
+      src: "/Team/gajri.jpeg"
     },
     {
       id: 5,
-      name: "David Kim",
-      role: "VP of Growth & Strategy",
-      bio: "Data-driven marketing strategist helping technology startups reach market dominance.",
-      imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-      },
+      name: "Ayan",
+      role: "Senior Full-Stack Developer",
+      bio: "A results-oriented Full-Stack Developer with a strong background in building scalable, high-performance web applications. Proficient in modern frameworks and committed to delivering exceptional user experiences.",
+      src: "/Team/ayan.jpeg"
+    },
+    {
+      id: 6,
+      name: "Wakeel",
+      role: "Senior Full-Stack Developer",
+      bio: "A results-oriented Full-Stack Developer with a strong background in building scalable, high-performance web applications. Proficient in modern frameworks and committed to delivering exceptional user experiences.",
+      src: "/Team/wakeel.jpeg"
     },
   ];
 
@@ -184,7 +163,7 @@ export const TeamSection = () => {
                         <div className="relative mx-auto w-32 h-32 mb-5">
                           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-md opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
                           <img
-                            src={member.imageUrl}
+                            src={member.src}
                             alt={member.name}
                             className="relative w-full h-full object-cover rounded-full border-2 border-blue-400/50 group-hover:border-cyan-300 transition-colors duration-300 p-1 bg-[#070D19]"
                           />
@@ -207,47 +186,7 @@ export const TeamSection = () => {
                         </p>
                       </div>
 
-                      {/* Centered Social Icons */}
-                      <div className="flex items-center justify-center gap-3 pt-4 border-t border-blue-900/50">
-                        {member.socials.linkedin && (
-                          <a
-                            href={member.socials.linkedin}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
-                          >
-                            <Linkedin className="w-4 h-4" />
-                          </a>
-                        )}
-                        {member.socials.twitter && (
-                          <a
-                            href={member.socials.twitter}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
-                          >
-                            <Twitter className="w-4 h-4" />
-                          </a>
-                        )}
-                        {member.socials.github && (
-                          <a
-                            href={member.socials.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
-                          >
-                            <Github className="w-4 h-4" />
-                          </a>
-                        )}
-                        {member.socials.email && (
-                          <a
-                            href={member.socials.email}
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
-                          >
-                            <Mail className="w-4 h-4" />
-                          </a>
-                        )}
-                      </div>
+
 
                     </div>
                   </motion.div>

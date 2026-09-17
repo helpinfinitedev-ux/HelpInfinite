@@ -16,13 +16,13 @@ export const FloatingSocialIcons = () => {
   const socialLinks = [
     {
       Icon: Phone,
-      href: "tel:+911234567890", // Yahan apna mobile number dalein
+      href: "tel:+919651597211", // Yahan apna mobile number dalein
       label: "Call",
       color: "hover:text-emerald-400 hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:bg-emerald-950/40",
     },
     {
       Icon: MessageSquare,
-      href: "https://wa.me/911234567890", // Yahan apna WhatsApp number dalein
+      href: "https://wa.me/9651597211", // Yahan apna WhatsApp number dalein
       label: "WhatsApp",
       color: "hover:text-green-400 hover:border-green-500/50 hover:shadow-green-500/20 hover:bg-green-950/40",
     },
@@ -34,7 +34,7 @@ export const FloatingSocialIcons = () => {
     },
     {
       Icon: Mail,
-      href: "mailto:contact@helpinfinite.com", // Yahan email address dalein
+      href: "mailto:moazz575khan@gmail.com", // Yahan email address dalein
       label: "Email",
       color: "hover:text-cyan-400 hover:border-cyan-500/50 hover:shadow-cyan-500/20 hover:bg-cyan-950/40",
     },

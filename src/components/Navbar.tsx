@@ -92,16 +92,16 @@ export const Navbar = () => {
 
                         {/* List Items */}
                         <div className="col-span-7 grid grid-cols-1 gap-0.5">
-                          <ListItem href="/services/web" title="Web Development" icon={Code}>
+                          <ListItem href="/marketing" title="Web Development" icon={Code}>
                             Custom websites & web apps
                           </ListItem>
-                          <ListItem href="/services/mobile" title="Mobile Apps" icon={Smartphone}>
+                          <ListItem href="/mobile-apps" title="Mobile Apps" icon={Smartphone}>
                             Native iOS & Android apps
                           </ListItem>
-                          <ListItem href="/services/seo" title="SEO Services" icon={Search}>
+                          <ListItem href="/marketing" title="SEO Services" icon={Search}>
                             Boost rankings & traffic
                           </ListItem>
-                          <ListItem href="/services/email" title="Email Marketing" icon={Mail}>
+                          <ListItem href="/marketing" title="Email Marketing" icon={Mail}>
                             High-converting campaigns
                           </ListItem>
                         </div>
