@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Smartphone, ShieldCheck, Cpu, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
@@ -11,142 +11,220 @@ const MobileAppsPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-900 to-black text-white">
-      <header className="bg-black/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto py-4 px-6 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-white">
-            Help Infinite
+    <div className="min-h-screen bg-[#030712] text-white selection:bg-cyan-500 selection:text-black">
+
+      {/* Sticky Top Header */}
+      <header className="bg-[#030712]/80 backdrop-blur-xl border-b border-blue-900/40 sticky top-0 z-50 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-2 group">
+            <img
+              src="/logo/logo.png"
+              alt="Help Infinite"
+              className="h-auto w-[140px] sm:w-[160px] transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
-          <Button asChild variant="ghost" className="text-white hover:bg-white/10">
+          <Button asChild variant="ghost" size="sm" className="text-blue-200 hover:text-cyan-300 hover:bg-blue-950/60 border border-blue-800/40 rounded-full text-xs font-semibold">
             <Link to="/">
-              <ArrowLeft className="mr-2" size={18} />
+              <ArrowLeft className="mr-1.5 w-3.5 h-3.5" />
               Back to Home
             </Link>
           </Button>
         </div>
       </header>
 
-      <main className="container mx-auto py-16 px-6">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">Mobile Apps Development</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">Reach more customers with beautiful, functional mobile applications that work seamlessly across iOS and Android devices.</p>
+      {/* Main Content Area */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative">
+
+        {/* Background Ambient Glow Effects */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
+
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+        >
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/60 border border-blue-800/40 text-[10px] sm:text-xs text-cyan-300 font-bold uppercase tracking-widest mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> Next-Gen Mobile Development
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-white via-blue-100 to-cyan-400 bg-clip-text text-transparent leading-tight">
+            Mobile Apps Development
+          </h1>
+          <p className="text-sm sm:text-base text-blue-100/70 leading-relaxed">
+            Reach more customers with beautiful, high-performing mobile applications engineered seamlessly for both iOS and Android devices.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
-          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-full">
-              <h2 className="text-2xl font-bold mb-4 text-green-400">Native Apps</h2>
-              <p className="text-gray-300 mb-6">
-                We build high-performance native applications for iOS and Android platforms that provide the best user experience and take full advantage of device capabilities.
+        {/* Tech Offerings Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+          {/* Native Apps Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <div className="bg-[#070D19]/80 backdrop-blur-xl border border-blue-800/40 rounded-2xl p-6 sm:p-8 h-full relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300 shadow-xl shadow-blue-950/30">
+              <div className="p-3 rounded-xl bg-blue-900/30 border border-blue-700/40 text-cyan-400 w-fit mb-4 group-hover:scale-110 transition-transform">
+                <Smartphone className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-300 transition-colors">
+                Native Applications
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/70 mb-6 leading-relaxed">
+                We build high-performance native applications for iOS and Android that provide unmatched responsiveness and leverage full device capabilities.
               </p>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start">
-                  <span className="bg-green-500 rounded-full p-1 mr-3 mt-1"></span>
+              <ul className="space-y-2.5 text-xs text-blue-200/90">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
                   <span>Swift & SwiftUI for iOS</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="bg-green-500 rounded-full p-1 mr-3 mt-1"></span>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
                   <span>Kotlin & Jetpack Compose for Android</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="bg-green-500 rounded-full p-1 mr-3 mt-1"></span>
-                  <span>Full Device Feature Integration</span>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Full Hardware & Device Feature Integration</span>
                 </li>
               </ul>
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.5 }}>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-full">
-              <h2 className="text-2xl font-bold mb-4 text-green-400">Cross-Platform Solutions</h2>
-              <p className="text-gray-300 mb-6">
-                Maximize your reach with cross-platform technologies that allow you to deploy a single codebase across multiple platforms without sacrificing quality.
+          {/* Cross-Platform Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
+            <div className="bg-[#070D19]/80 backdrop-blur-xl border border-blue-800/40 rounded-2xl p-6 sm:p-8 h-full relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300 shadow-xl shadow-blue-950/30">
+              <div className="p-3 rounded-xl bg-blue-900/30 border border-blue-700/40 text-cyan-400 w-fit mb-4 group-hover:scale-110 transition-transform">
+                <Cpu className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-300 transition-colors">
+                Cross-Platform Solutions
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/70 mb-6 leading-relaxed">
+                Maximize your market reach with modern cross-platform tech that allows single-codebase deployment across multiple OS without compromising performance.
               </p>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start">
-                  <span className="bg-green-500 rounded-full p-1 mr-3 mt-1"></span>
-                  <span>React Native Development</span>
+              <ul className="space-y-2.5 text-xs text-blue-200/90">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>React Native Framework</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="bg-green-500 rounded-full p-1 mr-3 mt-1"></span>
-                  <span>Flutter Applications</span>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Flutter Engine Applications</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="bg-green-500 rounded-full p-1 mr-3 mt-1"></span>
-                  <span>Cost-Effective Development</span>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Faster Time-to-Market & Cost Savings</span>
                 </li>
               </ul>
             </div>
           </motion.div>
+
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }} className="mt-16">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">Our Mobile App Development Process</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-              <div className="text-center">
-                <div className="bg-green-500/20 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-green-400">1</span>
+        {/* Development Process Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="mb-12"
+        >
+          <div className="bg-[#070D19]/60 backdrop-blur-xl border border-blue-900/40 rounded-2xl p-6 sm:p-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-center mb-8 text-white">
+              Our Development Lifecycle
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+              <div className="p-4 rounded-xl bg-blue-950/30 border border-blue-900/30 text-center">
+                <div className="bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full h-10 w-10 flex items-center justify-center mx-auto mb-3 font-extrabold text-white text-sm shadow-md shadow-cyan-500/20">
+                  1
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Discovery & Planning</h3>
-                <p className="text-gray-300">We analyze your business needs and create a detailed roadmap for your mobile application.</p>
+                <h3 className="text-sm font-bold text-white mb-1">Discovery & Strategy</h3>
+                <p className="text-xs text-blue-100/60 leading-relaxed">
+                  Analyzing core requirements and mapping out product architecture.
+                </p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-green-500/20 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-green-400">2</span>
+              <div className="p-4 rounded-xl bg-blue-950/30 border border-blue-900/30 text-center">
+                <div className="bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full h-10 w-10 flex items-center justify-center mx-auto mb-3 font-extrabold text-white text-sm shadow-md shadow-cyan-500/20">
+                  2
                 </div>
-                <h3 className="text-xl font-semibold mb-2">UI/UX Design</h3>
-                <p className="text-gray-300">Our designers create intuitive, engaging interfaces that delight your users.</p>
+                <h3 className="text-sm font-bold text-white mb-1">UI/UX & Prototyping</h3>
+                <p className="text-xs text-blue-100/60 leading-relaxed">
+                  Crafting sleek, accessible, and high-converting app interface designs.
+                </p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-green-500/20 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-green-400">3</span>
+              <div className="p-4 rounded-xl bg-blue-950/30 border border-blue-900/30 text-center">
+                <div className="bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full h-10 w-10 flex items-center justify-center mx-auto mb-3 font-extrabold text-white text-sm shadow-md shadow-cyan-500/20">
+                  3
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Development & Testing</h3>
-                <p className="text-gray-300">We build and rigorously test your app to ensure it's reliable and performant.</p>
+                <h3 className="text-sm font-bold text-white mb-1">Build & QA Testing</h3>
+                <p className="text-xs text-blue-100/60 leading-relaxed">
+                  Rigorous code development, security checks, and App Store deployment.
+                </p>
               </div>
+
             </div>
           </div>
         </motion.div>
 
-        <div className="mt-12">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-            className="bg-gradient-to-r from-green-500/20 to-teal-500/20 rounded-3xl p-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-4">See Our Mobile App Portfolio</h2>
-                <p className="text-gray-300 mb-6">Browse through our collection of successful mobile applications we've built for clients across various industries.</p>
-                <Button asChild size="lg" className="bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white">
-                  <Link to="/portfolio">View Examples</Link>
-                </Button>
-              </div>
-              <div className="bg-black/20 rounded-2xl p-6 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-4 text-green-400">Client Success Story</h3>
-                <p className="text-gray-300 italic mb-4">
-                  "Help Infinite delivered an exceptional mobile app that exceeded our expectations. The intuitive design and seamless functionality have significantly improved our customer
-                  engagement."
-                </p>
-                <p className="text-right text-green-400 font-medium">- Jane Doe, CEO of TechCorp</p>
-              </div>
+        {/* Portfolio Feature Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="bg-gradient-to-r from-blue-950/80 via-[#070D19] to-blue-950/80 border border-blue-800/40 rounded-2xl p-6 sm:p-8 mb-12 shadow-2xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold mb-2 text-white">
+                Explore Mobile Projects
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/70 mb-5 leading-relaxed">
+                Check out our curated portfolio of mobile applications built across e-commerce, enterprise SaaS, and consumer tech.
+              </p>
+              <Button asChild size="sm" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs uppercase tracking-wider px-5 rounded-full border border-cyan-400/30 shadow-md">
+                <Link to="/portfolio" className="flex items-center gap-1.5">
+                  View Showcase <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </Button>
             </div>
-          </motion.div>
-        </div>
 
-        <div className="mt-20 text-center">
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.5 }}>
-            <h2 className="text-3xl font-bold mb-6">Ready to build your mobile application?</h2>
-            <Button asChild size="lg" className="bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white font-medium px-8 py-6 text-lg">
-              <Link to="/contact">Get Started Today</Link>
-            </Button>
-          </motion.div>
-        </div>
+            <div className="bg-blue-950/40 border border-blue-800/30 rounded-xl p-4 sm:p-5">
+              <ShieldCheck className="w-5 h-5 text-cyan-400 mb-2" />
+              <p className="text-xs text-blue-100/80 italic mb-3 leading-relaxed">
+                "Help Infinite delivered an exceptional mobile app that exceeded our expectations. The intuitive design and smooth functionality drastically boosted our user retention."
+              </p>
+              <p className="text-[11px] text-cyan-300 font-semibold text-right">- Jane Doe, CEO of TechCorp</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* CTA Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="text-center py-6"
+        >
+          <h2 className="text-2xl sm:text-3xl font-extrabold mb-4 text-white">
+            Ready to turn your mobile concept into reality?
+          </h2>
+          <Button asChild className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs uppercase tracking-wider px-7 py-3 rounded-full shadow-lg shadow-blue-600/30 border border-cyan-400/30">
+            <Link to="/contact">Get Started Today</Link>
+          </Button>
+        </motion.div>
+
       </main>
 
+      {/* Footer */}
       <Footer />
     </div>
   );

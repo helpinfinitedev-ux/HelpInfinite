@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Search, Share2, FileText, BarChart3, CheckCircle2, Sparkles, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
@@ -11,119 +11,211 @@ const MarketingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-600 to-black text-white">
-      <header className="bg-black/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto py-4 px-6 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-white">
-            Help Infinite
+    <div className="min-h-screen bg-[#030712] text-white selection:bg-cyan-500 selection:text-black">
+
+      {/* Sticky Top Header */}
+      <header className="bg-[#030712]/80 backdrop-blur-xl border-b border-blue-900/40 sticky top-0 z-50 py-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-2 group">
+            <img
+              src="/logo/logo.png"
+              alt="Help Infinite"
+              className="h-auto w-[140px] sm:w-[160px] transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
-          <Button asChild variant="ghost" className="text-white hover:bg-white/10">
+          <Button asChild variant="ghost" size="sm" className="text-blue-200 hover:text-cyan-300 hover:bg-blue-950/60 border border-blue-800/40 rounded-full text-xs font-semibold">
             <Link to="/">
-              <ArrowLeft className="mr-2" size={18} />
+              <ArrowLeft className="mr-1.5 w-3.5 h-3.5" />
               Back to Home
             </Link>
           </Button>
         </div>
       </header>
 
-      <main className="container mx-auto py-16 px-6">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Boost Your Online Presence</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">Our comprehensive digital marketing solutions will help your business stand out in today's competitive online landscape.</p>
+      {/* Main Content Area */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative">
+
+        {/* Background Ambient Glow Effects */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
+
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+        >
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/60 border border-blue-800/40 text-[10px] sm:text-xs text-cyan-300 font-bold uppercase tracking-widest mb-4">
+            <Megaphone className="w-3.5 h-3.5 text-cyan-400" /> Digital Marketing Solutions
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-white via-blue-100 to-cyan-400 bg-clip-text text-transparent leading-tight">
+            Boost Your Online Presence
+          </h1>
+          <p className="text-sm sm:text-base text-blue-100/70 leading-relaxed">
+            Data-driven growth, strategic SEO, and ROI-focused marketing campaigns to help your business dominate the digital market.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
-          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.5 }} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-pink-400">Search Engine Optimization</h2>
-            <p className="text-gray-300 mb-6">
-              Improve your website's visibility in search results with our strategic SEO services. We use data-driven techniques to boost your rankings and drive organic traffic.
-            </p>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Keyword Research & Strategy</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>On-page & Technical SEO</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Link Building & Authority Development</span>
-              </li>
-            </ul>
+        {/* Marketing Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+
+          {/* SEO Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <div className="bg-[#070D19]/80 backdrop-blur-xl border border-blue-800/40 rounded-2xl p-6 sm:p-8 h-full relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300 shadow-xl shadow-blue-950/30">
+              <div className="p-3 rounded-xl bg-blue-900/30 border border-blue-700/40 text-cyan-400 w-fit mb-4 group-hover:scale-110 transition-transform">
+                <Search className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-300 transition-colors">
+                Search Engine Optimization
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/70 mb-6 leading-relaxed">
+                Improve your website's organic search visibility with our data-driven SEO techniques designed to rank higher on Google and bring qualified traffic.
+              </p>
+              <ul className="space-y-2.5 text-xs text-blue-200/90">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Keyword Research & Competitor Strategy</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>On-Page, Off-Page & Technical SEO</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>High-Authority Link Building</span>
+                </li>
+              </ul>
+            </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4, duration: 0.5 }} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-pink-400">Social Media Marketing</h2>
-            <p className="text-gray-300 mb-6">Engage with your audience where they spend their time. We create compelling social media campaigns that build brand awareness and drive conversions.</p>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Content Creation & Curation</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Community Management</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Paid Social Advertising</span>
-              </li>
-            </ul>
+          {/* Social Media Marketing Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
+            <div className="bg-[#070D19]/80 backdrop-blur-xl border border-blue-800/40 rounded-2xl p-6 sm:p-8 h-full relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300 shadow-xl shadow-blue-950/30">
+              <div className="p-3 rounded-xl bg-blue-900/30 border border-blue-700/40 text-cyan-400 w-fit mb-4 group-hover:scale-110 transition-transform">
+                <Share2 className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-300 transition-colors">
+                Social Media Marketing
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/70 mb-6 leading-relaxed">
+                Connect directly with your core target audience. We run high-converting social campaigns that expand brand reach and generate active leads.
+              </p>
+              <ul className="space-y-2.5 text-xs text-blue-200/90">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Creative Content & Reel Production</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Community & Brand Reputation Management</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>High-ROI Paid Social Ads (Meta & LinkedIn)</span>
+                </li>
+              </ul>
+            </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6, duration: 0.5 }} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-pink-400">Content Marketing</h2>
-            <p className="text-gray-300 mb-6">
-              Tell your brand's story with engaging content that resonates with your audience and drives results. Our content strategies deliver value at every stage of the buyer's journey.
-            </p>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Blog Posts & Articles</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Video & Visual Content</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Email Marketing Campaigns</span>
-              </li>
-            </ul>
+          {/* Content Marketing Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
+            <div className="bg-[#070D19]/80 backdrop-blur-xl border border-blue-800/40 rounded-2xl p-6 sm:p-8 h-full relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300 shadow-xl shadow-blue-950/30">
+              <div className="p-3 rounded-xl bg-blue-900/30 border border-blue-700/40 text-cyan-400 w-fit mb-4 group-hover:scale-110 transition-transform">
+                <FileText className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-300 transition-colors">
+                Content & Copywriting
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/70 mb-6 leading-relaxed">
+                Tell a compelling story that turns passive readers into active buyers. Our content marketing adds real value at every stage of the user journey.
+              </p>
+              <ul className="space-y-2.5 text-xs text-blue-200/90">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>SEO-Optimized Blogs & Articles</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Visual Content & Infographics</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Automated Email Funnels & Newsletters</span>
+                </li>
+              </ul>
+            </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 0.5 }} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-pink-400">Analytics & Reporting</h2>
-            <p className="text-gray-300 mb-6">Make informed decisions based on data. We provide comprehensive analytics and reporting to measure the success of your marketing campaigns.</p>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Performance Tracking</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Conversion Rate Optimization</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-pink-500 rounded-full p-1 mr-3 mt-1"></span>
-                <span>Custom Reporting Dashboards</span>
-              </li>
-            </ul>
+          {/* Analytics & Reporting Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+            <div className="bg-[#070D19]/80 backdrop-blur-xl border border-blue-800/40 rounded-2xl p-6 sm:p-8 h-full relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300 shadow-xl shadow-blue-950/30">
+              <div className="p-3 rounded-xl bg-blue-900/30 border border-blue-700/40 text-cyan-400 w-fit mb-4 group-hover:scale-110 transition-transform">
+                <BarChart3 className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold mb-2 text-white group-hover:text-cyan-300 transition-colors">
+                Analytics & Growth Insights
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/70 mb-6 leading-relaxed">
+                Make confident decisions backed by accurate analytics. We provide full performance dashboards to track conversions and marketing spend ROI.
+              </p>
+              <ul className="space-y-2.5 text-xs text-blue-200/90">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Real-time Multi-Channel Tracking</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Conversion Rate Optimization (CRO)</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Transparent Monthly ROI Reports</span>
+                </li>
+              </ul>
+            </div>
           </motion.div>
+
         </div>
 
-        <div className="mt-20 text-center">
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.5 }}>
-            <h2 className="text-3xl font-bold mb-6">Ready to transform your online presence?</h2>
-            <Button asChild size="lg" className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-medium px-8 py-6 text-lg">
-              <Link to="/contact">Get Started Today</Link>
-            </Button>
-          </motion.div>
-        </div>
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="text-center bg-gradient-to-r from-blue-950/80 via-[#070D19] to-blue-950/80 border border-blue-800/40 rounded-2xl p-8 sm:p-12 shadow-2xl"
+        >
+          <Sparkles className="w-8 h-8 text-cyan-400 mx-auto mb-3 animate-pulse" />
+          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 text-white">
+            Ready to scale your business online?
+          </h2>
+          <p className="text-xs sm:text-sm text-blue-100/70 max-w-xl mx-auto mb-6">
+            Get in touch with our marketing specialists today to build a custom growth strategy tailored to your budget and objectives.
+          </p>
+          <Button asChild className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-full shadow-lg shadow-blue-600/30 border border-cyan-400/30">
+            <Link to="/contact">Get Started Today</Link>
+          </Button>
+        </motion.div>
+
       </main>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
