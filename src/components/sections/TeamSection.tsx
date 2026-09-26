@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Carousel,
@@ -6,7 +6,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { Users, ChevronLeft, ChevronRight, Linkedin, Twitter, Github, Mail, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, Mail, Sparkles } from "lucide-react";
 
 interface TeamMember {
   id: number;
@@ -14,12 +14,9 @@ interface TeamMember {
   role: string;
   bio: string;
   imageUrl: string;
-  socials: {
-    linkedin?: string;
-    twitter?: string;
-    github?: string;
-    email?: string;
-  };
+  skills: string[];
+  experience: string;
+  email?: string;
 }
 
 // Centered Heading Component
@@ -70,61 +67,59 @@ export const TeamSection = () => {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: "Alex Vance",
-      role: "Chief Executive Officer",
-      bio: "Visionary leader with 12+ years in scaling AI & modern software platforms globally.",
-      imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        github: "#",
-      },
+      name: "Faisal",
+      role: "Co-founder and CTO",
+      bio: "Faisal is our lead developer with over 8 years of experience in building scalable web applications. He specializes in frontend architecture and has led multiple successful projects.",
+      imageUrl: "/Team/faisal.png",
+      skills: ["JavaScript", "React", "Node.js", "PostgreSQL", "System Architecture", "Next.js", "GraphQL", "MongoDB", "AWS", "Docker"],
+      experience: "8+ years in full-stack development",
+      email: "faisalmd25121999@gmail.com",
     },
     {
       id: 2,
-      name: "Sophia Carter",
-      role: "Head of Product Design",
-      bio: "Passionate about crafting intuitive UI/UX and seamless digital interactions.",
-      imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        email: "mailto:sophia@example.com",
-      },
+      name: "Moazzam Khan",
+      role: "Founder and CEO",
+      bio: "Moazzam is our full-stack developer with over 2 years of experience in building scalable web applications. He specializes in frontend architecture and has led multiple successful projects.",
+      imageUrl: "/Team/moazzam1.png",
+      skills: ["JavaScript", "React", "Node.js", "System Architecture", "Next.js", "GraphQL", "MongoDB", "AWS", "Docker"],
+      experience: "2+ years in full-stack development",
+      email: "moazzam575khan@gmail.com",
     },
     {
       id: 3,
-      name: "Marcus Sterling",
-      role: "Lead Full-Stack Architect",
-      bio: "Specializes in high-throughput cloud infrastructure and real-time backend systems.",
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        github: "#",
-        linkedin: "#",
-      },
+      name: "Mohd Wakeel",
+      role: "Lead .NET developer",
+      bio: "Mohd Wakeel is our lead .NET developer with over 5 years of experience in building scalable web applications. He specializes in backend architecture and has led multiple successful projects.",
+      imageUrl: "/Team/wakeel.jpeg",
+      skills: [".NET", "C#", "SQL Server", "Entity Framework", "ASP.NET Core", "Web API", "RESTful APIs", "Docker", "Azure", "AWS"],
+      experience: "5+ years in .NET development",
     },
     {
       id: 4,
-      name: "Elena Rostova",
-      role: "AI / ML Engineering Lead",
-      bio: "Pioneering generative models, deep learning pipelines, and predictive algorithms.",
-      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        github: "#",
-        twitter: "#",
-      },
+      name: "Ayan",
+      role: "Social media manager",
+      bio: "Ayan is our social media manager with over 2 years of experience. He specializes in social media strategy and has led multiple successful projects.",
+      imageUrl: "/Team/ayan.jpeg",
+      skills: ["Social media marketing", "Content creation", "Social media strategy", "Social media analytics", "Social media advertising", "Social media management"],
+      experience: "2+ years in social media marketing",
     },
     {
       id: 5,
-      name: "David Kim",
-      role: "VP of Growth & Strategy",
-      bio: "Data-driven marketing strategist helping technology startups reach market dominance.",
-      imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=500",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-      },
+      name: "Gajri Goyal",
+      role: "SEO Expert",
+      bio: "Gajri is our SEO expert with over 3 years of experience. She specializes in SEO and has led multiple successful projects.",
+      imageUrl: "/Team/gajri.jpeg",
+      skills: ["SEO", "Content creation", "SEO strategy", "SEO analytics", "SEO advertising", "SEO management"],
+      experience: "3+ years in SEO",
+    },
+    {
+      id: 6,
+      name: "Danish Shaikh",
+      role: "Marketing Expert",
+      bio: "Danish is our marketing expert with over 3 years of experience. He specializes in marketing and has led multiple successful projects.",
+      imageUrl: "/Team/danish.png",
+      skills: ["Marketing", "Content creation", "Marketing strategy", "Marketing analytics", "Marketing advertising", "Marketing management"],
+      experience: "3+ years in marketing",
     },
   ];
 
@@ -202,52 +197,38 @@ export const TeamSection = () => {
                         </p>
 
                         {/* Bio */}
-                        <p className="text-sm text-blue-100/70 leading-relaxed line-clamp-3 mb-6">
+                        <p className="text-sm text-blue-100/70 leading-relaxed mb-4">
                           {member.bio}
                         </p>
+
+                        <p className="text-sm font-medium text-blue-200 mb-4">
+                          {member.experience}
+                        </p>
+
+                        <div className="flex flex-wrap justify-center gap-2 mb-6" aria-label={`${member.name}'s skills`}>
+                          {member.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="rounded-full border border-blue-500/20 bg-blue-500/10 px-2.5 py-1 text-xs text-blue-100/80"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
                       </div>
 
-                      {/* Centered Social Icons */}
-                      <div className="flex items-center justify-center gap-3 pt-4 border-t border-blue-900/50">
-                        {member.socials.linkedin && (
+                      {member.email && (
+                        <div className="flex items-center justify-center pt-4 border-t border-blue-900/50">
                           <a
-                            href={member.socials.linkedin}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
-                          >
-                            <Linkedin className="w-4 h-4" />
-                          </a>
-                        )}
-                        {member.socials.twitter && (
-                          <a
-                            href={member.socials.twitter}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
-                          >
-                            <Twitter className="w-4 h-4" />
-                          </a>
-                        )}
-                        {member.socials.github && (
-                          <a
-                            href={member.socials.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
-                          >
-                            <Github className="w-4 h-4" />
-                          </a>
-                        )}
-                        {member.socials.email && (
-                          <a
-                            href={member.socials.email}
-                            className="p-2.5 rounded-full bg-blue-950/60 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
+                            href={`mailto:${member.email}`}
+                            aria-label={`Email ${member.name}`}
+                            className="inline-flex items-center gap-2 rounded-full bg-blue-950/60 border border-blue-500/20 px-4 py-2 text-sm text-blue-300 hover:bg-blue-600 hover:text-white transition-all duration-300"
                           >
                             <Mail className="w-4 h-4" />
+                            {member.email}
                           </a>
-                        )}
-                      </div>
+                        </div>
+                      )}
 
                     </div>
                   </motion.div>
